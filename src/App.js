@@ -4,6 +4,7 @@ import './App.css';
 const App = () => {
   const [number, setNumber] = useState(0);
   const numberRef = useRef(0)
+  const [counting, setCounting] = useState(false)
 
   function increment() {
     setNumber(number + 1)
@@ -11,16 +12,21 @@ const App = () => {
   function decrement() {
     setNumber(number - 1)
   }
-  function zero() {
-    setNumber(0)
-  }
 
   useEffect(() => {
-    setInterval(() => {
-      numberRef.current += 1
-      setNumber(numberRef.current);
-    }, 1000)
-  }, [])
+    let interval = null;
+    if (counting) {
+      interval = setInterval(() => {
+        numberRef.current += 1
+        setNumber(numberRef.current)
+      }, 1000)
+    } else {
+      clearInterval(interval)
+    }
+    return () => clearInterval(interval)
+  }, [counting])
+
+
 
 
   return (
@@ -32,10 +38,12 @@ const App = () => {
         <button className="decrement" onClick={decrement}>-</button>
       </div>
       <div className="row2">
-        <button className="zero" onClick={zero}>Reset</button>
+        <button className="start" onClick={() => setCounting(true)}>Start Counting</button>
+        <button className="stop" onClick={() => setCounting(false)}>Stop Counting</button>
+        <button className="resume" onClick={() => setCounting(true)}>Resume</button>
+        <button className="zero" onClick={() => setNumber(0)}>Reset</button>
         <button className="save">Save</button>
       </div>
-      <button >auto increment</button>
 
     </div>
   )

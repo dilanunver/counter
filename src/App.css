@@ -50,23 +50,29 @@ html {
   transition: all 0.5s ease-out;
 }
 .zero,
-.save {
+.save,
+.start,
+.stop,
+.resume {
   border-radius: 5px;
-  width: 80px;
-  height: 50px;
+  width: 120px;
+  height: 80px;
   font-family: "Red Hat Display", sans-serif;
   border: #4b6cb7 solid 2px;
   background-color: transparent;
   font-size: 22px;
 }
 .row2 {
-  width: 200px;
-  margin-top: 30px;
+  width: 700px;
+  margin-top: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .zero:hover,
-.save:hover {
+.save:hover,
+.start:hover,
+.stop:hover,
+.resume:hover {
   color: rgb(15, 24, 49);
   background-color: #386add;
   transition: all 0.5s ease-out;
