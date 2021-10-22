@@ -6,13 +6,11 @@ const App = () => {
   const [number, setNumber] = useState(0);
   const numberRef = useRef(0)
   const [counting, setCounting] = useState(false)
-  const [nums, setNums] = useState([
-    { id: 1, message: 'itworks' }
-  ])
+  const [nums, setNums] = useState([])
 
   const handleSubmit = (e, nums, setNums, number) => {
     e.preventDefault()
-    const id = (nums.length) ? nums[nums.length - 1].id + 1 : 0;
+    const id = (nums.length) ? nums[nums.length - 1].id + 1 : 1;
     console.log(id)
     setNums([...nums, { id: id, message: number }])
 
