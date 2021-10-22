@@ -1,12 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
+import NumRecords from './components/NumRecords'
 
 const App = () => {
   const [number, setNumber] = useState(0);
   const numberRef = useRef(0)
   const [counting, setCounting] = useState(false)
-  const [saveNum, setSaveNum] = useState([])
+  const [nums, setNums] = useState([
+    { id: 1, message: 'itworks' }
+  ])
 
+  const handleSubmit = (e, nums, setNums, number) => {
+    e.preventDefault()
+    const id = (nums.length) ? nums[nums.length - 1].id + 1 : 0;
+    console.log(id)
+    setNums([...nums, { id: id, message: number }])
+
+  }
   function increment() {
     setNumber(number + 1)
   }
@@ -22,8 +32,6 @@ const App = () => {
     let interval;
     if (counting) {
       interval = setInterval(() => {
-        console.log(numberRef)
-
         numberRef.current += 1
         setNumber(numberRef.current)
       }, 1000)
@@ -33,10 +41,6 @@ const App = () => {
     return () => clearInterval(interval)
   }, [counting])
 
-  const save = () => {
-    setSaveNum(number)
-    console.log(typeof (saveNum))
-  }
 
 
   return (
@@ -52,12 +56,16 @@ const App = () => {
         <button className="stop" onClick={() => setCounting(false)}>Stop Counting</button>
         <button className="resume" onClick={() => setCounting(true)}>Resume</button>
         <button className="zero" onClick={() => setNumber(0)}>Reset</button>
-        <button className="save" onClick={save}>Save</button>
       </div>
-      <div className='saveNumbers'>
-        <span>Your first record</span><input type="text" value={saveNum}></input>
-      </div>
+      <div className='records'>
+        <form onSubmit={(e) => handleSubmit(e, nums, setNums, number)}>
+          <button>Save</button>
 
+        </form>
+        {nums.map(num => (
+          <NumRecords message={num.message} id={num.id}></NumRecords>
+        ))}
+      </div>
     </div>
   )
 }
