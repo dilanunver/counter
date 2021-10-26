@@ -4,6 +4,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  overflow: hidden;
+}
 html {
   height: 100%;
   background-image: linear-gradient(to bottom right, #b993d6, #8ca6db);
@@ -18,14 +21,14 @@ html {
 
 .header {
   font-family: "Red Hat Display", sans-serif;
-  font-size: 36px;
+  font-size: 33px;
   letter-spacing: 2px;
   font-weight: 300;
 }
 .number {
   font-family: "Red Hat Display", sans-serif;
   font-weight: 600;
-  font-size: 396px;
+  font-size: 352px;
 }
 .row {
   width: 350px;
@@ -76,4 +79,24 @@ html {
   color: rgb(15, 24, 49);
   background-color: #386add;
   transition: all 0.5s ease-out;
+}
+.allRecords {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 18px;
+  color: #182848;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.records {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+.secondRow {
+  display: flex;
+  flex-direction: column;
+  color: red;
+  border: 1px solid green;
 }

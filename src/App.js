@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import NumRecords from './components/NumRecords'
+import { MdDelete } from 'react-icons/md'
 
 const App = () => {
   const [number, setNumber] = useState(0);
@@ -12,7 +13,10 @@ const App = () => {
     e.preventDefault()
     const id = (nums.length) ? nums[nums.length - 1].id + 1 : 1;
     console.log(id)
+    console.log(number)
+
     setNums([...nums, { id: id, message: number }])
+    nums.map(num => console.log(num));
 
   }
   function increment() {
@@ -54,14 +58,19 @@ const App = () => {
         <button className="stop" onClick={() => setCounting(false)}>Stop Counting</button>
         <button className="resume" onClick={() => setCounting(true)}>Resume</button>
         <button className="zero" onClick={() => setNumber(0)}>Reset</button>
-      </div>
-      <div className='records'>
         <form onSubmit={(e) => handleSubmit(e, nums, setNums, number)}>
-          <button>Save</button>
-
+          <button className='save'>Save</button>
         </form>
+
+      </div>
+
+      <div className='allRecords'>
+
         {nums.map(num => (
-          <NumRecords message={num.message} id={num.id}></NumRecords>
+
+          <NumRecords id={num.id} message={num.message} MdDelete={MdDelete}>
+          </NumRecords>
+
         ))}
       </div>
     </div>
