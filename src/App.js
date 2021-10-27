@@ -64,7 +64,19 @@ const App = () => {
 
       </div>
 
-      <div className='allRecords'>
+      <div style=
+        {{
+          fontFamily: 'Red Hat Display", sans-serif',
+          fontSize: '18px',
+          color: '#182848',
+          paddingTop: '10px',
+          display: 'flex',
+          flexDirection: 'column',
+          height: '160px',
+          width: '47vw',
+          flexWrap: 'wrap',
+          overflow: 'hidden'
+        }}>
 
         {nums.map(num => (
 

@@ -80,15 +80,7 @@ html {
   background-color: #386add;
   transition: all 0.5s ease-out;
 }
-.allRecords {
-  font-family: "Red Hat Display", sans-serif;
-  font-size: 18px;
-  color: #182848;
-  padding-top: 10px;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
+
 .records {
   display: flex;
   flex-direction: column;

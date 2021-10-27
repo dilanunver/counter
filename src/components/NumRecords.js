@@ -4,40 +4,26 @@ const NumRecords = ({ message, id, MdDelete }) => {
   if (id > 6) {
     console.log('hey')
   }
-  if (id > 6) {
-    return (
-      <div className='secondRow'>
-        <span className='id'>
-          {id}.record:
-        </span>
-        <span className='message'>
-          {message}
-        </span>
-        <span>
-          <MdDelete />
-        </span>
+  return (
+    <div style={{
+      display: 'flex',
+      flexDirection: 'row',
+      width: '28%',
+
+    }}>
+      <div className='id'>
+        {id}.record:
       </div>
-    )
-  } else {
-    return (
-      <div className='records'>
-        <span className='id'>
-          {id}.record:
-        </span>
-        <span className='message'>
-          {message}
-        </span>
-        <span>
-          <MdDelete />
-        </span>
+      <div className='message'>
+        {message}
       </div>
-    )
-  }
-
-
-
-
+      <div>
+        <MdDelete />
+      </div>
+    </div>
+  )
 }
+
 
 
 export default NumRecords;
