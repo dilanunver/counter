@@ -1,9 +1,9 @@
 import React from "react";
 
-const NumRecords = ({ message, id, MdDelete }) => {
-  if (id > 6) {
-    console.log('hey')
-  }
+const NumRecords = ({ message, id, MdDelete, deleteItem }) => {
+
+
+
   return (
     <div style={{
       display: 'flex',
@@ -17,9 +17,13 @@ const NumRecords = ({ message, id, MdDelete }) => {
       <div className='message'>
         {message}
       </div>
-      <div>
+      <button style={{
+        background: 'transparent',
+        border: 'none',
+        cursor: 'pointer'
+      }} onClick={() => deleteItem(id)}>
         <MdDelete />
-      </div>
+      </button>
     </div>
   )
 }

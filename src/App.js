@@ -19,6 +19,13 @@ const App = () => {
     nums.map(num => console.log(num));
 
   }
+  const deleteItem = (id) => {
+    console.log(id)
+    console.log(nums)
+    const returned = nums.filter(num => num.id !== id);
+    console.log(returned)
+    setNums(returned)
+  }
   function increment() {
     setNumber(number + 1)
   }
@@ -80,7 +87,7 @@ const App = () => {
 
         {nums.map(num => (
 
-          <NumRecords id={num.id} message={num.message} MdDelete={MdDelete}>
+          <NumRecords id={num.id} message={num.message} MdDelete={MdDelete} deleteItem={deleteItem}>
           </NumRecords>
 
         ))}
