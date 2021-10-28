@@ -2,12 +2,19 @@ import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import NumRecords from './components/NumRecords'
 import { MdDelete } from 'react-icons/md'
+import Modal from 'react-modal'
 
 const App = () => {
   const [number, setNumber] = useState(0);
   const numberRef = useRef(0)
   const [counting, setCounting] = useState(false)
   const [nums, setNums] = useState([])
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  Modal.setAppElement('#root');
+
+  function closeModel() {
+    setModalIsOpen(false)
+  }
 
   const handleSubmit = (e, nums, setNums, number) => {
     e.preventDefault()
@@ -21,7 +28,7 @@ const App = () => {
   }
   const deleteItem = (id) => {
     console.log(id)
-    console.log(nums)
+    console.log(nums.id)
     const returned = nums.filter(num => num.id !== id);
     console.log(returned)
     setNums(returned)
@@ -84,7 +91,6 @@ const App = () => {
           flexWrap: 'wrap',
           overflow: 'hidden'
         }}>
-
         {nums.map(num => (
 
           <NumRecords id={num.id} message={num.message} MdDelete={MdDelete} deleteItem={deleteItem}>
@@ -92,6 +98,50 @@ const App = () => {
 
         ))}
       </div>
+      {nums.length >= 25 && <div onClick={() => setModalIsOpen(true)} style={{
+        fontFamily: 'Red Hat Display", sans-serif',
+        fontSize: '18px',
+        color: '#386add',
+        cursor: 'pointer',
+        borderRadius: '5px',
+        width: '108px',
+        height: '37px',
+        border: '#4b6cb7 solid 2px',
+        backgroundColor: 'transparent',
+        position: 'absolute',
+        bottom: '3%',
+        right: '15%',
+        textAlign: 'center',
+        paddingTop: '3px'
+      }}>Read More</div>}
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModel}>
+
+        <div style=
+          {{
+            fontFamily: 'Red Hat Display", sans-serif',
+            fontSize: '18px',
+            color: '#182848',
+            paddingTop: '10px',
+            display: 'flex',
+            flexDirection: 'column',
+            height: '160px',
+            width: '47vw',
+            flexWrap: 'wrap',
+
+          }}>
+          {nums.map(num => (
+
+            <NumRecords id={num.id} message={num.message} MdDelete={MdDelete} deleteItem={deleteItem}>
+            </NumRecords>
+
+          ))}
+        </div>
+
+      </Modal>
+
+
     </div>
   )
 }

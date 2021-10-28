@@ -86,9 +86,3 @@ html {
   flex-direction: column;
   width: 45%;
 }
-.secondRow {
-  display: flex;
-  flex-direction: column;
-  color: red;
-  border: 1px solid green;
-}
