@@ -117,7 +117,15 @@ const App = () => {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModel}>
-
+        <h2 style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontWeight: '700px',
+          color: '#b973b9',
+          textTransform: 'uppercase',
+          fontSize: '40px'
+        }}>All Records</h2>
         <div style=
           {{
             fontFamily: 'Red Hat Display", sans-serif',
@@ -131,6 +139,7 @@ const App = () => {
             flexWrap: 'wrap',
 
           }}>
+
           {nums.map(num => (
 
             <NumRecords id={num.id} message={num.message} MdDelete={MdDelete} deleteItem={deleteItem}>
