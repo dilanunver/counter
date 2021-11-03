@@ -19,18 +19,10 @@ const App = () => {
   const handleSubmit = (e, nums, setNums, number) => {
     e.preventDefault()
     const id = (nums.length) ? nums[nums.length - 1].id + 1 : 1;
-    console.log(id)
-    console.log(number)
-
     setNums([...nums, { id: id, message: number }])
-    nums.map(num => console.log(num));
-
   }
   const deleteItem = (id) => {
-    console.log(id)
-    console.log(nums.id)
     const returned = nums.filter(num => num.id !== id);
-    console.log(returned)
     setNums(returned)
   }
   function increment() {
@@ -39,8 +31,6 @@ const App = () => {
   function decrement() {
     setNumber(number - 1)
   }
-  console.log(numberRef)
-  console.log(number)
   if (numberRef.current < number || numberRef.current > number) {
     numberRef.current = number
   }
@@ -56,9 +46,6 @@ const App = () => {
     }
     return () => clearInterval(interval)
   }, [counting])
-
-
-
   return (
     <div className="app">
       <h2 className="header">Counter App</h2>
@@ -75,9 +62,7 @@ const App = () => {
         <form onSubmit={(e) => handleSubmit(e, nums, setNums, number)}>
           <button className='save'>Save</button>
         </form>
-
       </div>
-
       <div style=
         {{
           fontFamily: 'Red Hat Display", sans-serif',
@@ -89,13 +74,12 @@ const App = () => {
           height: '160px',
           width: '47vw',
           flexWrap: 'wrap',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          alignContent: 'flex-start'
         }}>
         {nums.map(num => (
-
           <NumRecords id={num.id} message={num.message} MdDelete={MdDelete} deleteItem={deleteItem}>
           </NumRecords>
-
         ))}
       </div>
       {nums.length >= 25 && <div onClick={() => setModalIsOpen(true)} style={{
@@ -137,20 +121,14 @@ const App = () => {
             height: '160px',
             width: '47vw',
             flexWrap: 'wrap',
-
           }}>
-
           {nums.map(num => (
-
             <NumRecords id={num.id} message={num.message} MdDelete={MdDelete} deleteItem={deleteItem}>
             </NumRecords>
 
           ))}
         </div>
-
       </Modal>
-
-
     </div>
   )
 }

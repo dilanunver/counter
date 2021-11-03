@@ -1,13 +1,9 @@
 import React from "react";
 
 const NumRecords = ({ message, id, MdDelete, deleteItem }) => {
-
-
-
   return (
     <div style={{
       display: 'flex',
-      flexDirection: 'row',
       width: '28%',
 
     }}>
