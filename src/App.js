@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import NumRecords from './components/NumRecords'
 import { MdDelete } from 'react-icons/md'
+import { AiOutlineClose } from 'react-icons/ai'
 import Modal from 'react-modal'
 
 const App = () => {
@@ -14,6 +15,18 @@ const App = () => {
 
   function closeModel() {
     setModalIsOpen(false)
+  }
+
+  const handleMouseEnter = (e) => {
+    let mouseStyle = e.target.style;
+    mouseStyle.border = '2px solid #8ca6db';
+    mouseStyle.borderRadius = '5px'
+    mouseStyle.color = '#386add'
+  }
+  const handleMouseLeave = (e) => {
+    let mouseStyle = e.target.style;
+    mouseStyle.border = 'none'
+    mouseStyle.backgroundColor = 'transparent'
   }
 
   const handleSubmit = (e, nums, setNums, number) => {
@@ -72,7 +85,7 @@ const App = () => {
           display: 'flex',
           flexDirection: 'column',
           height: '160px',
-          width: '47vw',
+          width: '35vw',
           flexWrap: 'wrap',
           overflow: 'hidden',
           alignContent: 'flex-start'
@@ -110,6 +123,17 @@ const App = () => {
           textTransform: 'uppercase',
           fontSize: '40px'
         }}>All Records</h2>
+        <AiOutlineClose
+          onClick={() => setModalIsOpen(false)}
+          style={{
+            position: 'absolute',
+            right: '2%',
+            top: '2%',
+            cursor: 'pointer',
+            fontSize: '20px',
+            color: '#4b6cb7'
+          }} onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}></AiOutlineClose>
         <div style=
           {{
             fontFamily: 'Red Hat Display", sans-serif',
