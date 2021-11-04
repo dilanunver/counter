@@ -56,7 +56,8 @@ html {
 .save,
 .start,
 .stop,
-.resume {
+.resume,
+.deleteAll {
   border-radius: 5px;
   width: 120px;
   height: 80px;
@@ -75,7 +76,8 @@ html {
 .save:hover,
 .start:hover,
 .stop:hover,
-.resume:hover {
+.resume:hover,
+.deleteAll:hover {
   color: rgb(15, 24, 49);
   background-color: #386add;
   transition: all 0.5s ease-out;

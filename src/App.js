@@ -16,7 +16,19 @@ const App = () => {
   function closeModel() {
     setModalIsOpen(false)
   }
+  const modalDeleteAllEnter = (e) => {
+    let modalDeleteAllStyle = e.target.style;
+    modalDeleteAllStyle.color = 'rgb(15, 24, 49)';
+    modalDeleteAllStyle.backgroundColor = '#386add';
+    modalDeleteAllStyle.transition = 'all 0.5s ease - out';
+  }
+  const modalDeleteAllLeave = (e) => {
+    let modalDeleteAllStyle = e.target.style;
+    modalDeleteAllStyle.color = 'rgb(15, 24, 49)';
+    modalDeleteAllStyle.backgroundColor = 'transparent';
+    modalDeleteAllStyle.transition = 'all 0.5s ease - out';
 
+  }
   const handleMouseEnter = (e) => {
     let mouseStyle = e.target.style;
     mouseStyle.border = '2px solid #8ca6db';
@@ -75,6 +87,7 @@ const App = () => {
         <form onSubmit={(e) => handleSubmit(e, nums, setNums, number)}>
           <button className='save'>Save</button>
         </form>
+        <button className="deleteAll" onClick={() => setNums([])}>Delete</button>
       </div>
       <div style=
         {{
@@ -151,7 +164,18 @@ const App = () => {
             </NumRecords>
 
           ))}
-        </div>
+        </div><button style={{
+          position: 'absolute',
+          right: '5%',
+          bottom: '5%',
+          borderRadius: '5px',
+          width: '120px',
+          height: '80px',
+          fontFamily: '"Red Hat Display", sans-serif',
+          border: '#4b6cb7 solid 2px',
+          backgroundColor: 'transparent',
+          fontSize: '22px'
+        }} onMouseEnter={modalDeleteAllEnter} onMouseLeave={modalDeleteAllLeave} onClick={() => setNums([])}>Delete All</button>
       </Modal>
     </div>
   )
