@@ -88,3 +88,13 @@ html {
   flex-direction: column;
   width: 45%;
 }
+.numStyle {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 160px;
+  width: 35vw;
+  flex-wrap: wrap;
+  overflow: hidden;
+  align-content: flex-start;
+}

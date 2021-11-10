@@ -16,31 +16,11 @@ const App = () => {
   function closeModel() {
     setModalIsOpen(false)
   }
-  const modalDeleteAllEnter = (e) => {
-    let modalDeleteAllStyle = e.target.style;
-    modalDeleteAllStyle.color = 'rgb(15, 24, 49)';
-    modalDeleteAllStyle.backgroundColor = '#386add';
-    modalDeleteAllStyle.transition = 'all 0.5s ease - out';
-  }
-  const modalDeleteAllLeave = (e) => {
-    let modalDeleteAllStyle = e.target.style;
-    modalDeleteAllStyle.color = 'rgb(15, 24, 49)';
-    modalDeleteAllStyle.backgroundColor = 'transparent';
-    modalDeleteAllStyle.transition = 'all 0.5s ease - out';
 
+  function deleteAll() {
+    setNums([]);
+    setModalIsOpen(false)
   }
-  const handleMouseEnter = (e) => {
-    let mouseStyle = e.target.style;
-    mouseStyle.border = '2px solid #8ca6db';
-    mouseStyle.borderRadius = '5px'
-    mouseStyle.color = '#386add'
-  }
-  const handleMouseLeave = (e) => {
-    let mouseStyle = e.target.style;
-    mouseStyle.border = 'none'
-    mouseStyle.backgroundColor = 'transparent'
-  }
-
   const handleSubmit = (e, nums, setNums, number) => {
     e.preventDefault()
     const id = (nums.length) ? nums[nums.length - 1].id + 1 : 1;
@@ -71,6 +51,32 @@ const App = () => {
     }
     return () => clearInterval(interval)
   }, [counting])
+
+  //styling
+  const modalDeleteAllEnter = (e) => {
+    let modalDeleteAllStyle = e.target.style;
+    modalDeleteAllStyle.color = 'rgb(15, 24, 49)';
+    modalDeleteAllStyle.backgroundColor = '#386add';
+    modalDeleteAllStyle.transition = 'all 0.5s ease - out';
+  }
+  const modalDeleteAllLeave = (e) => {
+    let modalDeleteAllStyle = e.target.style;
+    modalDeleteAllStyle.color = 'rgb(15, 24, 49)';
+    modalDeleteAllStyle.backgroundColor = 'transparent';
+    modalDeleteAllStyle.transition = 'all 0.5s ease - out';
+
+  }
+  const handleMouseEnter = (e) => {
+    let mouseStyle = e.target.style;
+    mouseStyle.border = '2px solid #8ca6db';
+    mouseStyle.borderRadius = '5px'
+    mouseStyle.color = '#386add'
+  }
+  const handleMouseLeave = (e) => {
+    let mouseStyle = e.target.style;
+    mouseStyle.border = 'none'
+    mouseStyle.backgroundColor = 'transparent'
+  }
   return (
     <div className="app">
       <h2 className="header">Counter App</h2>
@@ -89,20 +95,7 @@ const App = () => {
         </form>
         <button className="deleteAll" onClick={() => setNums([])}>Delete</button>
       </div>
-      <div style=
-        {{
-          fontFamily: 'Red Hat Display", sans-serif',
-          fontSize: '18px',
-          color: '#182848',
-          paddingTop: '10px',
-          display: 'flex',
-          flexDirection: 'column',
-          height: '160px',
-          width: '35vw',
-          flexWrap: 'wrap',
-          overflow: 'hidden',
-          alignContent: 'flex-start'
-        }}>
+      <div className='numStyle' >
         {nums.map(num => (
           <NumRecords id={num.id} message={num.message} MdDelete={MdDelete} deleteItem={deleteItem}>
           </NumRecords>
@@ -175,7 +168,7 @@ const App = () => {
           border: '#4b6cb7 solid 2px',
           backgroundColor: 'transparent',
           fontSize: '22px'
-        }} onMouseEnter={modalDeleteAllEnter} onMouseLeave={modalDeleteAllLeave} onClick={() => setNums([])}>Delete All</button>
+        }} onMouseEnter={modalDeleteAllEnter} onMouseLeave={modalDeleteAllLeave} onClick={deleteAll}>Delete All</button>
       </Modal>
     </div>
   )

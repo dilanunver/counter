@@ -5,6 +5,10 @@ const NumRecords = ({ message, id, MdDelete, deleteItem }) => {
     <div style={{
       display: 'flex',
       width: '28%',
+      fontFamily: 'Red Hat Display", sans-serif',
+      fontWeight: '300',
+      fontSize: '18px',
+      color: ' #182848'
 
     }}>
       <div className='id'>
