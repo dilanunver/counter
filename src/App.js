@@ -95,80 +95,33 @@ const App = () => {
         </form>
         <button className="deleteAll" onClick={() => setNums([])}>Delete</button>
       </div>
-      <div className='numStyle' >
+      <div className='numsStyle' >
         {nums.map(num => (
           <NumRecords id={num.id} message={num.message} MdDelete={MdDelete} deleteItem={deleteItem}>
           </NumRecords>
         ))}
       </div>
-      {nums.length >= 25 && <div onClick={() => setModalIsOpen(true)} style={{
-        fontFamily: 'Red Hat Display", sans-serif',
-        fontSize: '18px',
-        color: '#386add',
-        cursor: 'pointer',
-        borderRadius: '5px',
-        width: '108px',
-        height: '37px',
-        border: '#4b6cb7 solid 2px',
-        backgroundColor: 'transparent',
-        position: 'absolute',
-        bottom: '3%',
-        right: '15%',
-        textAlign: 'center',
-        paddingTop: '3px'
-      }}>Read More</div>}
+      {nums.length >= 25 && <div onClick={() => setModalIsOpen(true)} className='readMore' >Read More</div>}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModel}>
-        <h2 style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontWeight: '700px',
-          color: '#b973b9',
-          textTransform: 'uppercase',
-          fontSize: '40px'
-        }}>All Records</h2>
+        <h2 className='allRecords' >All Records</h2>
         <AiOutlineClose
           onClick={() => setModalIsOpen(false)}
-          style={{
-            position: 'absolute',
-            right: '2%',
-            top: '2%',
-            cursor: 'pointer',
-            fontSize: '20px',
-            color: '#4b6cb7'
-          }} onMouseEnter={handleMouseEnter}
+          className='modalClose'
+          onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}></AiOutlineClose>
-        <div style=
-          {{
-            fontFamily: 'Red Hat Display", sans-serif',
-            fontSize: '18px',
-            color: '#182848',
-            paddingTop: '10px',
-            display: 'flex',
-            flexDirection: 'column',
-            height: '160px',
-            width: '47vw',
-            flexWrap: 'wrap',
-          }}>
+        <div
+          className='numStyle'
+        >
           {nums.map(num => (
             <NumRecords id={num.id} message={num.message} MdDelete={MdDelete} deleteItem={deleteItem}>
             </NumRecords>
 
           ))}
-        </div><button style={{
-          position: 'absolute',
-          right: '5%',
-          bottom: '5%',
-          borderRadius: '5px',
-          width: '120px',
-          height: '80px',
-          fontFamily: '"Red Hat Display", sans-serif',
-          border: '#4b6cb7 solid 2px',
-          backgroundColor: 'transparent',
-          fontSize: '22px'
-        }} onMouseEnter={modalDeleteAllEnter} onMouseLeave={modalDeleteAllLeave} onClick={deleteAll}>Delete All</button>
+        </div><button
+          className='deleteButton'
+          onMouseEnter={modalDeleteAllEnter} onMouseLeave={modalDeleteAllLeave} onClick={deleteAll}>Delete All</button>
       </Modal>
     </div>
   )

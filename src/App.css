@@ -17,6 +17,7 @@ html {
   align-items: center;
   flex-direction: column;
   padding-top: 50px;
+  color: #182848;
 }
 
 .header {
@@ -57,7 +58,8 @@ html {
 .start,
 .stop,
 .resume,
-.deleteAll {
+.deleteAll,
+.deleteButton {
   border-radius: 5px;
   width: 120px;
   height: 80px;
@@ -77,7 +79,9 @@ html {
 .start:hover,
 .stop:hover,
 .resume:hover,
-.deleteAll:hover {
+.deleteAll:hover,
+.readMore:hover,
+.deleteButton :hover {
   color: rgb(15, 24, 49);
   background-color: #386add;
   transition: all 0.5s ease-out;
@@ -88,7 +92,7 @@ html {
   flex-direction: column;
   width: 45%;
 }
-.numStyle {
+.numsStyle {
   padding-top: 10px;
   display: flex;
   flex-direction: column;
@@ -97,4 +101,56 @@ html {
   flex-wrap: wrap;
   overflow: hidden;
   align-content: flex-start;
+}
+.readMore {
+  font-size: 18px;
+  color: #386add;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 108px;
+  height: 37px;
+  border: #4b6cb7 solid 2px;
+  background-color: transparent;
+  position: absolute;
+  bottom: 3%;
+  right: 15%;
+  text-align: center;
+  padding-top: 3px;
+}
+.allRecords {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #b973b9;
+  text-transform: uppercase;
+  font-size: 40px;
+}
+.modalClose {
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  cursor: pointer;
+  font-size: 20px;
+}
+.numStyle {
+  font-size: 18px;
+  color: #182848;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 160px;
+  width: 47vw;
+  flex-wrap: wrap;
+}
+.deleteButton {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  border-radius: 5px;
+  width: 120px;
+  height: 80px;
+  font-family: "Red Hat Display", sans-serif;
+  border: #4b6cb7 solid 2px;
+  background-color: transparent;
+  font-size: 22px;
 }

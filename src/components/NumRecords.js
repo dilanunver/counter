@@ -6,7 +6,7 @@ const NumRecords = ({ message, id, MdDelete, deleteItem }) => {
       display: 'flex',
       width: '28%',
       fontFamily: 'Red Hat Display", sans-serif',
-      fontWeight: '300',
+      fontWeight: '400',
       fontSize: '18px',
       color: ' #182848'
 
