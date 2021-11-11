@@ -1,6 +1,7 @@
 import React from "react";
 
 const NumRecords = ({ message, id, MdDelete, deleteItem }) => {
+
   return (
     <div style={{
       display: 'flex',
@@ -11,7 +12,9 @@ const NumRecords = ({ message, id, MdDelete, deleteItem }) => {
       color: ' #182848'
 
     }}>
+
       <div className='id'>
+
         {id}.record:
       </div>
       <div className='message'>

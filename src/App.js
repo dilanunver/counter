@@ -97,7 +97,8 @@ const App = () => {
       </div>
       <div className='numsStyle' >
         {nums.map(num => (
-          <NumRecords id={num.id} message={num.message} MdDelete={MdDelete} deleteItem={deleteItem}>
+
+          <NumRecords id={num.id} message={num.message} MdDelete={MdDelete} deleteItem={deleteItem} >
           </NumRecords>
         ))}
       </div>
@@ -123,7 +124,7 @@ const App = () => {
           className='deleteButton'
           onMouseEnter={modalDeleteAllEnter} onMouseLeave={modalDeleteAllLeave} onClick={deleteAll}>Delete All</button>
       </Modal>
-    </div>
+    </div >
   )
 }
 

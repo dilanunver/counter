@@ -138,7 +138,7 @@ html {
   padding-top: 10px;
   display: flex;
   flex-direction: column;
-  height: 160px;
+  height: 100%;
   width: 47vw;
   flex-wrap: wrap;
 }
@@ -153,4 +153,66 @@ html {
   border: #4b6cb7 solid 2px;
   background-color: transparent;
   font-size: 22px;
+}
+
+@media only screen and (max-width: 1775px) {
+  .numsStyle {
+    width: 40vw;
+  }
+}
+@media only screen and (max-width: 1548px) {
+  .numsStyle {
+    width: 45vw;
+  }
+}
+@media only screen and (max-width: 1390px) {
+  .numsStyle {
+    width: 50vw;
+  }
+}
+@media only screen and (max-width: 1249px) {
+  .numsStyle {
+    width: 55vw;
+  }
+}
+
+@media only screen and (max-width: 1123px) {
+  .numsStyle {
+    width: 60vw;
+  }
+}
+@media only screen and (max-width: 1038px) {
+  .numsStyle {
+    width: 65vw;
+  }
+}
+@media only screen and (max-width: 958px) {
+  .numsStyle {
+    width: 70vw;
+  }
+}
+@media only screen and (max-width: 958px) {
+  .numsStyle {
+    width: 70vw;
+  }
+}
+@media only screen and (max-width: 880px) {
+  .numsStyle {
+    width: 75vw;
+  }
+}
+@media only screen and (max-width: 842px) {
+  .numsStyle {
+    width: 80vw;
+  }
+}
+@media only screen and (max-width: 772px) {
+  .numsStyle {
+    width: 85vw;
+  }
+}
+@media only screen and (max-width: 722px) {
+  .numsStyle {
+    width: 90vw;
+  }
 }
